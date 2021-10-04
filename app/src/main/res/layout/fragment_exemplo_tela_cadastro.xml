@@ -6,29 +6,188 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ExemploTelaCadastro">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_margin="10dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nome"
-        app:helperText="* Obrigatório"
-        app:helperTextTextColor="@color/red"
-        app:helperTextEnabled="true"
+        android:layout_height="match_parent">
 
-        app:startIconDrawable="@drawable/ic_isuario"
-        app:startIconContentDescription="Icone de usuario"
-        app:endIconMode="clear_text"
-        app:endIconDrawable="@drawable/ic_cancel"
-        app:endIconContentDescription="Apagar texto escrito"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">>
-
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/texto_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            />
+            android:text="CADASTRO"
+            android:textColor="@color/lightblue_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"
+            android:textStyle="bold"
+            android:elevation="4dp"
+            android:stateListAnimator="@drawable/background_shadow_textview"
+           />
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campo_nome"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Nome"
+            app:endIconContentDescription="Apagar texto escrito"
+            app:endIconDrawable="@drawable/ic_cancel"
+            app:endIconMode="clear_text"
+
+            app:helperText="* Obrigatório"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/red"
+            app:layout_constraintTop_toBottomOf="@id/texto_cadastro"
+
+            app:startIconContentDescription="Icone de usuario"
+            app:startIconDrawable="@drawable/ic_isuario">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/endereco"
+            app:layout_constraintTop_toBottomOf="@id/campo_nome"
+            app:layout_constraintStart_toStartOf="@id/campo_nome"
+            app:layout_constraintEnd_toEndOf="@id/campo_nome"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_location"
+            app:startIconContentDescription="Localização"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            app:endIconContentDescription="Apagar texto escrito"
+            app:endIconDrawable="@drawable/ic_cancel"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Endereço"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cidade"
+            app:layout_constraintTop_toBottomOf="@id/endereco"
+            app:layout_constraintStart_toStartOf="@id/endereco"
+            app:layout_constraintEnd_toStartOf="@id/estado"
+            android:layout_marginVertical="5dp"
+            android:layout_width="0dp"
+            android:paddingEnd="10dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Cidade"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/estado"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:hint="Estado"
+            app:layout_constraintEnd_toEndOf="@id/endereco"
+            app:layout_constraintTop_toTopOf="@id/cidade"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_estados"
+                android:maxLines="1"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:ellipsize="end"
+                android:textAppearance="?attr/textAppearanceSubtitle1"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/valor"
+            app:layout_constraintTop_toBottomOf="@id/cidade"
+            app:layout_constraintStart_toStartOf="@id/cidade"
+            app:layout_constraintEnd_toEndOf="@id/estado"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            app:startIconDrawable="@drawable/ic_money"
+            app:startIconContentDescription="Valor financeiro"
+
+            app:prefixText="R$ "
+
+            app:endIconContentDescription="Apagar texto escrito"
+            app:endIconDrawable="@drawable/ic_cancel"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Valor"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/observacoes"
+            app:layout_constraintTop_toBottomOf="@id/valor"
+            app:layout_constraintStart_toStartOf="@id/valor"
+            app:layout_constraintEnd_toEndOf="@id/valor"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            app:helperTextEnabled="true"
+            app:helperText="Diga o que achou"
+
+            app:counterEnabled="true"
+            app:counterMaxLength="100"
+
+
+            app:endIconContentDescription="Apagar texto escrito"
+            app:endIconDrawable="@drawable/ic_cancel"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Observações"
+                android:maxLength="100"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
