@@ -4,18 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ExemploTelaCadastro">
+    tools:context=".ExemploTelaCadastroFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <TextView
+            style="@style/TextViewTheme"
             android:id="@+id/texto_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CADASTRO"
-            android:textColor="@color/lightblue_500"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -127,10 +129,40 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/valor"
+            android:id="@+id/telefone"
             app:layout_constraintTop_toBottomOf="@id/cidade"
             app:layout_constraintStart_toStartOf="@id/cidade"
             app:layout_constraintEnd_toEndOf="@id/estado"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            app:startIconDrawable="@drawable/ic_phone"
+            app:startIconContentDescription="Telefone ou celular para contato"
+
+
+            app:endIconContentDescription="Apagar texto escrito"
+            app:endIconDrawable="@drawable/ic_cancel"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_telefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Telefone/Celular" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/valor"
+            app:layout_constraintTop_toBottomOf="@id/telefone"
+            app:layout_constraintStart_toStartOf="@id/telefone"
+            app:layout_constraintEnd_toEndOf="@id/telefone"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="5dp"
             android:layout_width="match_parent"
@@ -147,10 +179,12 @@
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_money"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Valor"/>
+                android:hint="Valor"
+                android:maxLength="12"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -182,10 +216,21 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:hint="Observações"
-                android:maxLength="100"/>
+                android:maxLength="100" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintTop_toBottomOf="@id/observacoes"
+            app:layout_constraintEnd_toEndOf="@id/observacoes"
+            />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
