@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".util.ExemploTelaLoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="355dp"
+            android:layout_height="154dp"
+            android:layout_marginTop="80dp"
+            android:src="@mipmap/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campo_login"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Usuario"
+            app:endIconContentDescription="Apagar texto escrito"
+            app:endIconDrawable="@drawable/ic_cancel"
+            android:layout_marginHorizontal="20dp"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:startIconContentDescription="Icone de usuario"
+            app:startIconDrawable="@drawable/ic_isuario">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campo_senha"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:hint="Senha"
+            app:endIconContentDescription="Ocultar Senha"
+            app:endIconMode="password_toggle"
+
+
+            app:layout_constraintEnd_toEndOf="@+id/campo_login"
+            app:layout_constraintStart_toStartOf="@+id/campo_login"
+            app:layout_constraintTop_toBottomOf="@id/campo_login"
+            app:startIconContentDescription="Icone de usuario"
+            app:startIconDrawable="@drawable/ic_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:text="Login"
+            app:layout_constraintEnd_toEndOf="@+id/campo_senha"
+            app:layout_constraintStart_toStartOf="@+id/campo_senha"
+            app:layout_constraintTop_toBottomOf="@+id/campo_senha" />
+
+        <Button
+            android:id="@+id/button_cadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CADASTRE AQUI!"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintBottom_toTopOf="@id/textView_esqueceu_senha"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColorHighlight="@color/lightblue_500"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:textColor="@color/lightblue_500"
+            android:id="@+id/textView_esqueceu_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="Esqueceu sua senha?"
+            android:textColorLink="@color/lightblue_500"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

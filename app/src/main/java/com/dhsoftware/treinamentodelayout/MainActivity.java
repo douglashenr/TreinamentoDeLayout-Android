@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.dhsoftware.treinamentodelayout.util.ExemploTelaLoginFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements MaterialToolbar.O
         setContentView(R.layout.activity_main);
 
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ExemploTelaCadastroFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ExemploTelaLoginFragment()).commit();
 
 
     }
