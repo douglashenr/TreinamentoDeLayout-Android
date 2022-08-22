@@ -57,6 +57,7 @@
             android:hint="Senha"
             app:endIconContentDescription="Ocultar Senha"
             app:endIconMode="password_toggle"
+            app:passwordToggleEnabled="true"
 
 
             app:layout_constraintEnd_toEndOf="@+id/campo_login"

@@ -14,6 +14,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.dhsoftware.treinamentodelayout.util.MoneyTextWatcher;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +25,7 @@ import java.util.Locale;
 
 public class ExemploTelaCadastroFragment extends Fragment {
 
+    private TextInputLayout textInputLayoutCampoNome;
     private View view;
     AutoCompleteTextView autoCompleteTextViewEstados;
 
@@ -56,5 +59,25 @@ public class ExemploTelaCadastroFragment extends Fragment {
 
         EditText editTextValor = view.findViewById(R.id.et_money);
         editTextValor.addTextChangedListener(new MoneyTextWatcher(editTextValor));
+    }
+
+    public void focus(){
+        EditText editText = textInputLayoutCampoNome.getEditText();
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                //Para setar erro
+                //colocar um if e ver só quando não tem mais o foco para melhorar ui
+
+                //Error no editText
+                editText.setError("teste");
+
+                //Erro pelo textInputLayout (Que no caso deixa o visual do erro diferente) sendo melhor utilizado, mas no caso preciso usar o setErrorEnabled para tirar e colocar null no erro
+                textInputLayoutCampoNome.setError("Teste");
+                //textInputLayoutCampoNome.setErrorEnabled(false);
+                //textInputLayoutCampoNome.setError(null);
+
+            }
+        });
     }
 }
